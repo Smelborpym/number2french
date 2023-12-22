@@ -28,7 +28,7 @@ class Converter:
         remainder = number % 10
         tens_word = self.tens[tens_index - 1]
 
-        # Adjust for French numbers 70-79 and 90-99
+        # french numbers 70-79 and 90-99
         if self.lang == 'french':
             if 70 <= number < 80:
                 tens_word = "soixante"
@@ -37,7 +37,7 @@ class Converter:
                 tens_word = "quatre-vingt"
                 remainder = number - 80
 
-        # Special handling for French 71 and 91
+        # handling french 71 and 91
         if self.lang == 'french' and number in [71, 91]:
             return tens_word + "-et-onze"
 
@@ -54,26 +54,6 @@ class Converter:
         else:
             return tens_word + "-" + self._convert_number(remainder)
 
-
-    # def _convert_larger_numbers(self, number):
-    #     if number == 100:
-    #         return "cent"
-    #     elif number < 1000:
-    #         hundreds = number // 100
-    #         remainder = number % 100
-    #         hundreds_word = ("cent" if hundreds == 1 else self._convert_number(hundreds) + "-cent") + ("s" if remainder == 0 and hundreds > 1 else "")
-
-    #         # Special rule for 11 to 19, except when it is exactly 11 after hundreds (like 111, 211, 311, ...)
-    #         if 12 <= remainder <= 19:
-    #             return hundreds_word + "-et-" + self._convert_number(remainder)
-    #         else:
-    #             return hundreds_word + ("" if remainder == 0 else "-" + self._convert_number(remainder))
-    #     else:
-    #         thousands = number // 1000
-    #         remainder = number % 1000
-    #         thousands_word = ("mille" if thousands == 1 else self._convert_number(thousands) + "-mille") + ("" if thousands > 1 else "")
-    #         return thousands_word + ("" if remainder == 0 else "-" + self._convert_number(remainder))
-
     def _convert_larger_numbers(self, number):
         if number == 100:
             return "cent"
@@ -82,7 +62,7 @@ class Converter:
             remainder = number % 100
             hundreds_word = ("cent" if hundreds == 1 else self._convert_number(hundreds) + "-cent") + ("s" if remainder == 0 and hundreds > 1 else "")
 
-            # Special rule for 11 to 19, except when it is exactly 11 after hundreds (like 111, 211, 311, ...)
+            # rule for 11 to 19, except when it is exactly 11 after hundreds
             if 12 <= remainder <= 19:
                 return hundreds_word + "-et-" + self._convert_number(remainder)
             else:
@@ -90,7 +70,7 @@ class Converter:
         else:
             thousands = number // 1000
             remainder = number % 1000
-            # Adjust thousands_word to pluralize 'mille' for whole thousands greater than 1000
+            # making "mille" plural for whole thousands greater than 1000
             thousands_word = ("mille" if thousands == 1 else self._convert_number(thousands) + "-mille") + ("s" if remainder == 0 and thousands > 1 else "")
             return thousands_word + ("" if remainder == 0 else "-" + self._convert_number(remainder))
 
