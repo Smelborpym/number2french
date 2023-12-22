@@ -1,4 +1,5 @@
 class Converter:
+    
     def __init__(self, numbers, lang='french'):
         self.numbers = numbers
         self.lang = lang
@@ -14,6 +15,10 @@ class Converter:
         return [self._convert_number(number) for number in self.numbers]
 
     def _convert_number(self, number):
+        if number < 0:
+            raise ValueError("No negative numbers.")
+        if number > 999999:
+            raise ValueError("Maximum number of digits: 6.")
         if number < 17:
             return self.units[number]
         elif number < 100:
