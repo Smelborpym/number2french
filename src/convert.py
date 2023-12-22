@@ -1,6 +1,7 @@
 import click
-from converter import Converter
-from utils import load_from_file, save_to_file
+from src.converter import Converter
+from src.utils import load_from_file, save_to_file
+
 
 @click.command()
 @click.option('--number', '-n', type=int, help='Convert a single number.')
