@@ -30,7 +30,7 @@ def load_from_file(file_path):
     except FileNotFoundError:
         raise FileNotFoundError(f"File not found: {file_path}")
 
-def save_to_file(output_data, file_path, file_name, lang_key):
+def save_to_file(output_data, file_path, lang_key):
     """
     Save the output data to a JSON file. 
     (The list of words is saved under 
@@ -42,10 +42,10 @@ def save_to_file(output_data, file_path, file_name, lang_key):
     :param lang_key: The key under which the data should be saved.
     """
     try:
-        with open(join(file_path, file_name), 'x', encoding='utf-8') as file:
+        with open(file_path, 'x', encoding='utf-8') as file:
             json.dump({lang_key: output_data}, file, indent=4, ensure_ascii=False)
     except IOError as e:
-        raise IOError(f"Could not write to file '{join(file_path, file_name)}': {e}")
+        raise IOError(f"Could not write to file '{file_path}': {e}")
 
 def load_labeled(json_file):
     try:
