@@ -1,4 +1,5 @@
 import json
+import pandas as pd
 
 def load_from_file(file_path):
     """
@@ -17,7 +18,7 @@ def load_from_file(file_path):
             raise ValueError("Missing 'numbers' key")
 
         numbers = data['numbers']
-        
+
         if not isinstance(numbers, list):
             raise ValueError("'numbers' must be associated with a list")
 
@@ -43,3 +44,18 @@ def save_to_file(output_data, file_path, lang_key):
             json.dump({lang_key: output_data}, file, indent=4)
     except IOError as e:
         raise IOError(f"Could not write to file: {e}")
+    
+
+def load_labeled(json_file):
+    try:
+        df = pd.read_json(json_file)
+        expected_columns = ["numbers", "french", "belgian"]
+        if all(col in df.columns for col in expected_columns):
+            return df
+        else:
+            raise ValueError("File does not have the expected columns.")
+
+    except Exception as e:
+        print(f"Error loading JSON file: {str(e)}")
+        return None
+
