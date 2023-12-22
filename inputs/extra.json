@@ -1,0 +1,50 @@
+{
+    "numbers": [
+        1001,
+        1100,
+        2101,
+        37859,
+        40798,
+        50011,
+        60021,
+        70070,
+        871081,
+        90098,
+        179000,
+        111111,
+        298673,
+        674895
+    ],
+    "french": [
+        "mille-un",
+        "mille-cent",
+        "deux-mille-cent-un",
+        "trente-sept-mille-huit-cent-cinquante-neuf",
+        "quarante-mille-sept-cent-quatre-vingt-dix-huit",
+        "cinquante-mille-onze",
+        "soixante-mille-vingt-et-un",
+        "soixante-dix-mille-soixante-dix",
+        "huit-cent-soixante-et-onze-mille-quatre-vingt-et-un",
+        "quatre-vingt-dix-mille-quatre-vingt-dix-huit",
+        "cent-soixante-dix-neuf-milles",
+        "cent-onze-mille-cent-onze",
+        "deux-cent-quatre-vingt-dix-huit-mille-six-cent-soixante-treize",
+        "six-cent-soixante-quatorze-mille-huit-cent-quatre-vingt-quinze"
+    ],
+    "belgian": [
+        "mille-un",
+        "mille-cent",
+        "deux-mille-cent-un",
+        "trente-sept-mille-huit-cent-cinquante-neuf",
+        "quarante-mille-sept-cent-nonante-huit",
+        "cinquante-mille-onze",
+        "soixante-mille-vingt-et-un",
+        "septante-mille-septante",
+        "huit-cent-septante-et-un-mille-huitante-et-un",
+        "nonante-mille-nonante-huit",
+        "cent-septante-neuf-milles",
+        "cent-onze-mille-cent-onze",
+        "deux-cent-nonante-huit-mille-six-cent-septante-trois",
+        "six-cent-septante-quatre-mille-huit-cent-nonante-cinq"
+    ]
+}
