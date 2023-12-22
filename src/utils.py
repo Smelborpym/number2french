@@ -1,5 +1,6 @@
 import json
 import pandas as pd
+from os.path import join
 
 def load_from_file(file_path):
     """
@@ -28,23 +29,23 @@ def load_from_file(file_path):
         raise ValueError(f"Invalid JSON file: {e}")
     except FileNotFoundError:
         raise FileNotFoundError(f"File not found: {file_path}")
-    
-def save_to_file(output_data, file_path, lang_key):
+
+def save_to_file(output_data, file_path, file_name, lang_key):
     """
     Save the output data to a JSON file. 
     (The list of words is saved under 
     a key named after the input language)
 
     :param output_data: The data to be saved.
-    :param file_path: Path to the JSON file to be saved.
+    :param file_path: Path to the directory where the file will be saved.
+    :param file_name: The name of the file to be saved.
     :param lang_key: The key under which the data should be saved.
     """
     try:
-        with open(file_path, 'w') as file:
-            json.dump({lang_key: output_data}, file, indent=4)
+        with open(join(file_path, file_name), 'x', encoding='utf-8') as file:
+            json.dump({lang_key: output_data}, file, indent=4, ensure_ascii=False)
     except IOError as e:
-        raise IOError(f"Could not write to file: {e}")
-    
+        raise IOError(f"Could not write to file '{join(file_path, file_name)}': {e}")
 
 def load_labeled(json_file):
     try:
