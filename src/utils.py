@@ -7,9 +7,6 @@ def load_from_file(file_path):
     Load a list of numbers from a JSON file.
     (The file should have the numbers stored
     under a key named 'numbers')
-
-    :param file_path: Path to the JSON file.
-    :return: List of numbers.
     """
     try:
         with open(file_path, 'r') as file:
@@ -35,11 +32,6 @@ def save_to_file(output_data, file_path, lang_key):
     Save the output data to a JSON file. 
     (The list of words is saved under 
     a key named after the input language)
-
-    :param output_data: The data to be saved.
-    :param file_path: Path to the directory where the file will be saved.
-    :param file_name: The name of the file to be saved.
-    :param lang_key: The key under which the data should be saved.
     """
     try:
         with open(file_path, 'x', encoding='utf-8') as file:
